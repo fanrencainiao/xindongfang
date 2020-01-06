@@ -1,0 +1,41 @@
+server:
+  port: 8888
+  max-http-header-size: 1024000
+spring:
+  application:
+    name: xindongfang
+  mvc:
+    favicon:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/wyait?characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:  
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+#mybatis配置
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.bms.**.entity
+  global-config:
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false  
+  

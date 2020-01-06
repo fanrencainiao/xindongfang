@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+
+<!--     <springProperty scope="context" name="logFilePath" source="mytask.log.path"/>
+    <springProperty scope="context" name="APPNAME" source="spring.application.name"/> -->
+ <!--    <springProperty scope="context" name="PROFILE" source="spring.config.profile"/>  -->
+ 
+<!--  <springProperty scope="context" name="logFilePath" source="D:/workspace-idea/gitlib/mytask/logfile"/>
+    <springProperty scope="context" name="APPNAME" source="mytask"/> -->
+	<property name="APPNAME" value="youxinservice"/>
+    <property name="APP_LOG_PATH" value="./logfile/youxin"/>
+    
+     <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${APP_LOG_PATH}/stdout/${APPNAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_PATH}/stdout/${APPNAME}_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>120MB</totalSizeCap>
+        </rollingPolicy>
+
+    </appender>
+
+    <appender name="paifile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${APP_LOG_PATH}/api/base_api.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_PATH}/api/base_api_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>120MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    
+     <appender name="sdkfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${APP_LOG_PATH}/sdk/sdk.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_PATH}/sdk/sdk_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>120MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    
+     <appender name="payfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${APP_LOG_PATH}/pay/pay.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_PATH}/pay/pay_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>120MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    
+     <appender name="schefile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${APP_LOG_PATH}/sche/sche.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_PATH}/sche/sche_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>120MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="api.log" level="debug">
+     <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="paifile"/>
+    </logger>
+    
+     <logger name="sdk" level="debug">
+      <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="sdkfile"/>
+    </logger>
+    
+     <logger name="pay" level="debug">
+      <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="payfile"/>
+    </logger>
+    <!-- 定时任务 -->
+    <logger name="sche" level="debug">
+      <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="schefile"/>
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="logfile"/>
+    </root>
+
+
+
+
+</configuration>

@@ -1,0 +1,106 @@
+{
+	"contentManagement": [
+		{
+			"title": "系统配置",
+			"icon": "&#xe716;",
+			"href": "",
+			"spread": false,
+			"systemConfig": true,
+			"children": [
+				{
+					"title": "服务器配置",
+					"icon": "&#xe857;",
+					"href": "/templates/console/system_config.html",
+					"spread": false
+				}
+			]
+			
+		},
+		{
+			"title": "银行卡提现",
+			"icon": "&#xe65e;",
+			"href": "/templates/console/bankRecord.html",
+			"spread": false,
+			"redEnvelope": true
+		},
+		{
+			"title": "用户管理",
+			"icon":"&#xe66f;",
+			"href": "/templates/console/userList.html",
+			"spread": false
+		},
+		{
+			"title": "红包管理",
+			"icon": "&#xe65e;",
+			"href": "/templates/console/redEnvelope.html",
+			"spread": false
+		},
+		{
+			"title": "系统账单",
+			"icon": "&#xe62a;",
+			"href": "",
+			"spread": false,
+			"recharge":true,
+			"children": [
+			 {
+					"title": "总账",
+					"icon": "&#xe632;",
+					"href": "/templates/console/totalBill.html",
+					"spread": false
+				},{
+					"title": "充值记录",
+					"icon": "&#xe632;",
+					"href": "/templates/console/appRecharge.html",
+					"spread": false
+				},{
+					"title": "提现记录",
+					"icon": "&#xe632;",
+					"href": "/templates/console/raiseCash.html",
+					"spread": false
+				},{
+					"title": "转账记录",
+					"icon": "&#xe632;",
+					"href": "/templates/console/transfer.html",
+					"spread": false
+				},{
+					"title": "付款记录",
+					"icon": "&#xe632;",
+					"href": "/templates/console/paymentCode.html",
+					"spread": false
+				}
+			]
+
+		},{
+			"title": "举报管理",
+			"icon": "&#xe6b2;",
+			"href": "/templates/console/complaint.html",
+			"spread": false,
+			"complaint": true
+		},{
+			"title": "反馈与帮助",
+			"icon": "&#xe607;",
+			"href": "",
+			"spread": false,
+			"systemConfig": true,
+			"children": [
+				{
+					"title": "意见反馈",
+					"icon": "&#xe6b2;",
+					"href": "/templates/console/opinion.html",
+					"spread": false
+				},
+				{
+					"title": "帮助中心",
+					"icon": "&#xe6b2;",
+					"href": "/templates/console/helpCenter.html",
+					"spread": false
+				}
+			]
+			
+		}
+
+	]
+	
+}
+
+
